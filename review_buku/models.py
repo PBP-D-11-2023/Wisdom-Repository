@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.conf import setting
+from django.conf import settings
 from daftar_buku.models import Buku
 
 class Review(models.Model):
