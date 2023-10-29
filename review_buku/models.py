@@ -1,10 +1,7 @@
 from django.contrib.auth.models import User
 from django.db import models
-from django.conf import settings
-
-class Buku(models.Model):
-    user = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
-
+from django.conf import setting
+from daftar_buku.models import Buku
 
 class Review(models.Model):
     buku = models.ForeignKey(Buku, on_delete=models.CASCADE, related_name='reviews')

@@ -25,12 +25,10 @@ from django.contrib.auth.decorators import login_required
 #     reviews = buku.review_set.all() if buku else []
 #     return render(request, 'reviews.html', {'buku': buku, 'form': form, 'reviews': reviews})
 
-def show_main(request):
-    reviews= Reviews.objects.filter(user=request.user)
-    context = {
-       'review_text': reviews,
-    }
-    return render(request, "lihat_review.html", context)
+
+def show_reviews(request):
+    reviews = Review.objects.all()  # Mengambil semua ulasan dari database
+    return render(request, 'lihat_review.html', {'reviews': reviews})
 
 @csrf_exempt
 @login_required(login_url='/login')  # Perlu login untuk mengakses view ini
